@@ -24,7 +24,7 @@ Now we divert all of our attendion to the integrand $e^{-(x^2+y^2)}$. For every 
   <img src="/assets/img/gaussian bell.jpg">
 </figure>
 
-We now approximate the volume of this bell using hollow cynlinders of height $e^{-(x^2+y^2)}=e^{-r^2}$ that 'wrap' around each other. We start at the origin with a very thin vertical 'rod' with height $1$. We tightly wrap around this cylinder with a hollow cylinder with height $e^{-\Delta r^2}$ and 'thickness' $\Delta r$. More generally, for all $r>0$, the additional layer of volume added on per $\delta r$ increment is just the difference in volumes of two solid cylinders - one with base radius $r$ and height $e^{-(r+\Delta r)^2}$, the other with base radius $r+\Delta r$ and height $e^{-(r+\Delta r)^2}$. The incremental volume is given below
+We now approximate the volume of this bell using hollow cylinders of height that 'wrap' around each other. We start at the origin with a very thin vertical 'rod' with height $1$. We tightly wrap around this cylinder with a hollow cylinder with height $e^{-\Delta r^2}$ and 'thickness' $\Delta r$. More generally, for all $r>0$, the additional layer of volume added on per $\Delta r$ increment is just the difference in volumes of two solid cylinders - one with base radius $r$ and height $e^{-(r+\Delta r)^2}$, the other with base radius $r+\Delta r$ and height $e^{-(r+\Delta r)^2}$. The incremental volume is given below
 
 $$
 \pi \left[(r+\Delta r)^2-r^2\right]e^{-(r+\Delta r)^2}=\pi (2r\Delta r+\Delta r^2)e^{-r^2}\cdot e^{-2r\Delta r-\Delta r^2}.
@@ -39,13 +39,13 @@ $$
 Choose a partition $\Pi$ of $(0,\infty)$ small enough such that each interval is of length at most $\Delta r$. We then obtain a Lower Riemann Integral approximation of $I^2$ as
 
 $$
-\sum_\Pi 2\pi re^{-r^2}\cdot \Delta r+o(\Delta r).
+\sum_\Pi \left(2\pi re^{-r^2}\cdot \Delta r+o(\Delta r)\right).
 $$
 
 Now taking the limit $\Delta r \to 0$, we get
 
 $$
-\lim_{\Delta r \to 0}\sum_\Pi 2\pi re^{-r^2}\cdot \Delta r+o(\Delta r)=\int_0^\infty 2\pi re^{-r^2}dr.
+\lim_{\Delta r \to 0}\sum_\Pi \left(2\pi re^{-r^2}\cdot \Delta r+o(\Delta r)\right)=\int_0^\infty 2\pi re^{-r^2}dr.
 $$
 
 Giving us an integral that can be solved very handily by inspection! Hence (with some abuse of notation),
@@ -67,10 +67,20 @@ $$
 $$
 
 # Extra Trivia/Problems
-It's well known that no elementary expression exists for the definite integrals of $e^{-x^2}$ (or $e^{\alpha x^2}$ for some real $\alpha\ne0$) with respect to $x$. However, an interesting problem I found lurking in the depths of the Simon Marais Mathematics Competition practice problems.
+It's well known that no elementary expression exists for the definite integrals of $e^{-x^2}$ (or $e^{\alpha x^2}$ for some real $\alpha\ne0$) with respect to $x$. Consequently, this leads me to share an interesting problem I found lurking in the depths of the Simon Marais Mathematics Competition practice problems.
 
 $$
-\text{Which of the two is larger: }\int_0^{\int_0^1e^{-x^2}dx}e^{x^2}dx\quad\text{or}\quad\int_0^{\int_0^1e^{x^2}dx}e^{-x^2}dx?
+\text{Which of the two is larger: }\int_0^{\int_0^1e^{-x^2}dx}e^{x^2}dx\text{ or }\int_0^{\int_0^1e^{x^2}dx}e^{-x^2}dx?
 $$
 
-More on this later...
+Immediately, one gets the suspicion that the bounds from $0$ to $1$ of the nested definite integrals are arbitrary, given the lack of an elementary antiderivative. Hence we are motivated to define for $t\ge0$
+
+$$
+f(t)=\int_0^{\int_0^te^{-x^2}dx}e^{x^2}dx\text{ and }g(t)\int_0^{\int_0^te^{x^2}dx}e^{-x^2}dx.
+$$
+
+With $f(0)=g(0)=0$, we want to compare $f(1)$ and $g(1)$. Let $f'(t)=\frac{d}{dt}f(t)$ and $g'(t)=\frac{d}{dt}g(t)$. Then, by the Chain Rule and Fundamental Theorem of Calculus,
+
+$$
+f'(t)=\exp\left[\left(\int_0^te^{-x^2}dx\right)^2\right]
+$$
