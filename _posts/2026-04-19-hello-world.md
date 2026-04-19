@@ -100,7 +100,7 @@ $$
 Finally, the Cauchy-Schwartz Inequality gives
 
 $$
-2\int_0^te^{-x^2}dx\cdot \int_0^te^{x^2}dx\ge\int_0^te^{-x^2}\cdote^{x^2}dx=2t
+2\int_0^te^{-x^2}dx\cdot \int_0^te^{x^2}dx\ge\int_0^te^{-x^2}\cdot e^{x^2}dx=2t
 $$
 
 Observe for $t\in(0,1)$, $2t>2t^2$, therefore
@@ -114,3 +114,36 @@ Thus we have our answer:
 $$
 \int_0^{\int_0^1e^{-x^2}dx}e^{x^2}dx>\int_0^{\int_0^1e^{x^2}dx}e^{-x^2}dx.
 $$
+
+It would be dire to not include any probability problems in this debut blog post, so I now propose one of my own:
+
+$$
+\text{If }Z\sim\mathcal{N}(0,1),\text{ evaluate }\mathbb{E}\left[\int_{-\infty}^Z e^{-x^2}dx\right].
+$$
+
+A rather simple way to go about this is using the fact that $\Phi(Z)\sim U(0,1)$, where $\Phi(Z)$ denotes the Cumulative Distribution Function of $Z$, and then do some algebraic manipulations. Instead, let's take a more scenic route! Our desired integral is
+
+$$
+\mathbb{E}\left[\int_{-\infty}^Z e^{-x^2}dx\right]=\int_{-\infty}^\infty\left(\int_{-\infty}^z e^{-x^2}dx\right)\cdot \frac{1}{\sqrt{2\pi}}e^\frac{-z^2}{2}dz.
+$$
+
+We use Fubini/Tonelli's Theorem above to get a double integral, and swap the order of integration to get
+
+$$
+\int_{-\infty}^\infty\left(\int_{-\infty}^z e^{-x^2}dx\right)\cdot \frac{1}{\sqrt{2\pi}}e^\frac{-z^2}{2}dz=\int_{-\infty}^\infty e^{-x^2}\left(\int_{z=x}^\infty\frac{1}{\sqrt{2\pi}}e^\frac{-z^2}{2}dz\right)dx=\int_{-\infty}^\infty e^{-x^2}\left(1-\Phi(x)\right)dx
+$$
+
+Now, one more trick is to realise that $\frac12-\Phi(x)$ is an odd function with respect to $x$, and the product of an odd and even function is also an odd function, which integrates to 0 over the real line (given the necessary conditions that we shall not check here!). So, we rewrite the integral above as
+
+$$
+\int_{-\infty}^\infty e^{-x^2}\left(1-\Phi(x)\right)dx=\int_{-\infty}^\infty e^{-x^2}\cdot\frac12dx+
+\int_{-\infty}^\infty e^{-x^2}\left(\frac12-\Phi(x)\right)dx=\frac12\int_{-\infty}^\infty e^{-x^2}dx=\frac{\sqrt{\pi}}{2}.
+$$
+
+Thus, we conclude our blog debut with a great expectation:
+
+$$
+\mathbb{E}\left[\int_{-\infty}^Z e^{-x^2}dx\right]=\frac{\sqrt{\pi}}{2},\quad\text{where }Z\sim\mathcal{N}(0,1).
+$$
+
+In fact, this result holds for any *nice* random variable distributed 'symmetrically' about $0$!
