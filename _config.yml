@@ -1,0 +1,6 @@
+title: "Informal Math Notes"
+description: "Solving interesting problems, informally."
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
