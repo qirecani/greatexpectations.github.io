@@ -1,25 +1,24 @@
 ---
 layout: post
-title: "A tiny Gaussian integral warm-up"
+title: "A Not-So Normal First Post"
 ---
 
-One of the nicest little calculations in analysis is the Gaussian integral
+The Gaussian integral had stumped folks in the eighteenth century due to its resemblance, yet also its unlikeness, to an elementary form. It also stumped me not so long ago. Here it is, presented innocuously.
 
 $$
-I = \int_{-\infty}^{\infty} e^{-x^2}\,dx.
+\text{I} = \int_{-\infty}^{\infty} e^{-x^2}\,dx.
 $$
 
-At first glance this does not look elementary, and in one variable it more or less isn’t.  
-The standard trick is to square the integral and move to two dimensions:
+Standard ways to go about this integral involve some 'changes to polar coordinates', or Jacobians, but to set the tone for this post and many others to come in this blog, we'll go about it in a hand-wavy and fun fashion! However, something unavoidable (from standard approaches) is first squaring the the integral and to use Fubini's Theorem:
 
 $$
-I^2
+\text{I}^2
 = \left(\int_{-\infty}^{\infty} e^{-x^2}\,dx\right)
   \left(\int_{-\infty}^{\infty} e^{-y^2}\,dy\right)
-= \int_{\mathbb{R}^2} e^{-(x^2+y^2)}\,dx\,dy.
+= \left(\int_{-\infty}^{\infty}\left(\int_{-\infty}^{\infty} e^{-(x^2+y^2)}\,dx\,dy.
 $$
 
-Now switch to polar coordinates:
+Now we divert all of our attendion to the integrand $e^{-(x^2+y^2)}$. For every point $(x,y)$ in the Cartesian plane, a simple use of Pythagoras' theorem tells us that $x^2+y^2$ is the square of the point's distance from the origin, which we define with $z=\sqrt{x^2+y^2}$. Visually, we are now finding the volume of a (very large) bell, rotationally symmetric about the origin, in which it reaches a peak height of $e^{-(0^2+0^2)}=1$. An illustration is given below.
 
 $$
 I^2
