@@ -24,28 +24,28 @@ Now we divert all of our attendion to the integrand $e^{-(x^2+y^2)}$. For every 
   <img src="/assets/img/gaussian bell.jpg">
 </figure>
 
-We now approximate the volume of this bell using hollow cynlinders of height $e^{-(x^2+y^2)}=e^{-r^2}$ that 'wrap' around each other. We start at the origin with a very thin vertical 'rod' with height $1$. We tightly wrap around this cylinder with a hollow cylinder with height $e^{-\delta r^2}$ and 'thickness' $\delta r$. More generally, for all $r>0$, the additional layer of volume added on per $\delta r$ increment is just the difference in volumes of two solid cylinders - one with base radius $r$ and height $e^{-(r+\delta r)^2}\approx$, the other with base radius $r+\delta r$ and height $e^{-(r+\delta r)^2}$. The incremental volume is given below
+We now approximate the volume of this bell using hollow cynlinders of height $e^{-(x^2+y^2)}=e^{-r^2}$ that 'wrap' around each other. We start at the origin with a very thin vertical 'rod' with height $1$. We tightly wrap around this cylinder with a hollow cylinder with height $e^{-\Delta r^2}$ and 'thickness' $\Delta r$. More generally, for all $r>0$, the additional layer of volume added on per $\delta r$ increment is just the difference in volumes of two solid cylinders - one with base radius $r$ and height $e^{-(r+\Delta r)^2}$, the other with base radius $r+\Delta r$ and height $e^{-(r+\Delta r)^2}$. The incremental volume is given below
 
 $$
-\pi \left[(r+\delta r)^2-r^2\right]e^{-(r+\delta r)^2}=\pi (2r\delta r+\delta r^2)e^{-r^2}\cdot e^{-2r\delta r-\delta r^2}.
+\pi \left[(r+\Delta r)^2-r^2\right]e^{-(r+\Delta r)^2}=\pi (2r\Delta r+\Delta r^2)e^{-r^2}\cdot e^{-2r\Delta r-\Delta r^2}.
 $$
 
-Now, we use the notation $o(\delta r)$ to describe a function $f(r)$ such that $f(r)\to 0$ 'much quicker' than $\delta r\to 0$. We first observe that a factor of $\delta r^2=o(\delta r)$ can be dsitributed. Additionally, a Taylor Expansion gives $e^{-2r\delta r-\delta r^2}=1-2r\delta r + o(\delta r)$. Finally, $\delta r$ is another factor that, when distributed, leaves a simplifies the expression above to
+Now, we use the notation $o(\Delta r)$ to describe a function $f(r)$ such that $f(r)\to 0$ 'much quicker' than $\Delta r\to 0$. We first observe that a factor of $\Delta r^2=o(\Delta r)$ can be distributed. Additionally, a Taylor Expansion gives $e^{-2r\Delta r-\Delta r^2}=1-2r\Delta r + o(\Delta r)$. Finally, $\Delta r$ is another factor that, when distributed, leaves a simplifies the expression above to
 
 $$
-2\pi re^{-r^2}\cdot \delta r+o(\delta r)
+2\pi re^{-r^2}\cdot \Delta r+o(\Delta r)
 $$
 
-Choose a partition $\Pi$ of $(0,\infty)$ small enough such that each interval is of length at most $\delta r$. We then obtain a Lower Riemann Integral approximation of the Gaussian intergal as
+Choose a partition $\Pi$ of $(0,\infty)$ small enough such that each interval is of length at most $\Delta r$. We then obtain a Lower Riemann Integral approximation of $I^2$ as
 
 $$
-\sum_\Pi 2\pi re^{-r^2}\cdot \delta r+o(\delta r).
+\sum_\Pi 2\pi re^{-r^2}\cdot \Delta r+o(\Delta r).
 $$
 
-Now taking the limit $\delta r \to 0$, we get
+Now taking the limit $\Delta r \to 0$, we get
 
 $$
-\lim_{\delta r \to 0}\sum_\Pi 2\pi re^{-r^2}\cdot \delta r+o(\delta r)=\int_0^\infty 2\pi re^{-r^2}dr.
+\lim_{\Delta r \to 0}\sum_\Pi 2\pi re^{-r^2}\cdot \Delta r+o(\Delta r)=\int_0^\infty 2\pi re^{-r^2}dr.
 $$
 
 Giving us an integral that can be solved very handily by inspection! Hence (with some abuse of notation),
