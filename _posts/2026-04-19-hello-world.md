@@ -60,7 +60,7 @@ $$
 I = \int_{-\infty}^{\infty} e^{-x^2}\,dx = \sqrt{\pi}.
 $$
 
-Now, of course, some normalising constants transforms the integrand above to the probability density function (Standard) Normal Distribution:
+Now, of course, some normalising constants transforms the integrand above to the probability density function of a (Standard) Normal Random Variable:
 
 $$
 \frac{1}{\sqrt{2\pi}}e^\frac{-z^2}{2}.
