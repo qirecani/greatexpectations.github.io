@@ -76,11 +76,41 @@ $$
 Immediately, one gets the suspicion that the bounds from $0$ to $1$ of the nested definite integrals are arbitrary, given the lack of an elementary antiderivative. Hence we are motivated to define for $t\ge0$
 
 $$
-f(t)=\int_0^{\int_0^te^{-x^2}dx}e^{x^2}dx\text{ and }g(t)\int_0^{\int_0^te^{x^2}dx}e^{-x^2}dx.
+f(t)=\int_0^{\int_0^te^{-x^2}dx}e^{x^2}dx\quad\text{and}\quad g(t)=\int_0^{\int_0^te^{x^2}dx}e^{-x^2}dx.
 $$
 
 With $f(0)=g(0)=0$, we want to compare $f(1)$ and $g(1)$. Let $f'(t)=\frac{d}{dt}f(t)$ and $g'(t)=\frac{d}{dt}g(t)$. Then, by the Chain Rule and Fundamental Theorem of Calculus,
 
 $$
-f'(t)=\exp\left[\left(\int_0^te^{-x^2}dx\right)^2\right]
+f'(t)=\exp\left[\left(\int_0^te^{-x^2}dx\right)^2\right]\cdot e^{-t^2}\quad\text{and}\quad f'(t)=\exp\left[-\left(\int_0^te^{x^2}dx\right)^2\right]\cdot e^{t^2}.
+$$
+
+Then,
+
+$$
+\frac{f'(t)}{g'(t)}=\exp\left[\left(\int_0^te^{-x^2}dx\right)^2+\left(\int_0^te^{x^2}dx\right)^2-2t^2\right]
+$$
+
+Now, for two positive real numbers $a,b$, $(a-b)^2\ge0\implies a^2+b^2\ge2ab$, so
+
+$$
+\left(\int_0^te^{-x^2}dx\right)^2+\left(\int_0^te^{x^2}dx\right)^2\ge2\int_0^te^{-x^2}dx\cdot \int_0^te^{x^2}dx.
+$$
+
+Finally, the Cauchy-Schwartz Inequality gives
+
+$$
+2\int_0^te^{-x^2}dx\cdot \int_0^te^{x^2}dx\ge\int_0^te^{-x^2}\cdote^{x^2}dx=2t
+$$
+
+Observe for $t\in(0,1)$, $2t>2t^2$, therefore
+
+$$
+\frac{f'(t)}{g'(t)}\ge\exp(2t-2t^2)>1\implies f'(t)>g'(t) \implies f(1)>g(1)
+$$
+
+Thus we have our answer:
+
+$$
+\int_0^{\int_0^1e^{-x^2}dx}e^{x^2}dx>\int_0^{\int_0^1e^{x^2}dx}e^{-x^2}dx.
 $$
