@@ -140,7 +140,7 @@ $$
 \int_{-\infty}^\infty e^{-x^2}\left(\frac12-\Phi(x)\right)dx=\frac12\int_{-\infty}^\infty e^{-x^2}dx=\frac{\sqrt{\pi}}{2}.
 $$
 
-Thus, we conclude our blog debut with a great expectation:
+Thus, we conclude our blog debut with a **great expectation**:
 
 $$
 \mathbb{E}\left[\int_{-\infty}^Z e^{-x^2}dx\right]=\frac{\sqrt{\pi}}{2},\quad\text{where }Z\sim\mathcal{N}(0,1).
