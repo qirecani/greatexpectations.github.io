@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "A Not-So Normal First Post"
+title: "A Reasonably Normal First Post"
 ---
 
 The Gaussian integral had stumped folks in the eighteenth century due to its resemblance, yet also its unlikeness, to an elementary form. It also stumped me not so long ago. Here it is, presented innocuously.
@@ -59,3 +59,18 @@ Hence, common sense tells us that $I>0$, and so we finally have our answer:
 $$
 I = \int_{-\infty}^{\infty} e^{-x^2}\,dx = \sqrt{\pi}.
 $$
+
+Now, of course, some normalising constants transforms the integrand above to the probability density function (Standard) Normal Distribution:
+
+$$
+\frac{1}{\sqrt{2\pi}}e^\frac{-z^2}{2}.
+$$
+
+# Extra Trivia/Problems
+It's well known that no elementary expression exists for the definite integrals of $e^{-x^2}$ (or $e^{\alpha x^2}$ for some $\alpha\in\mathbb{R}\setminus\{0\}$) with respect to $x$. However, an interesting problem I found lurking in the depths of the Simon Marais Mathematics Competition practice problems:
+
+$$
+\text{Which of the two is larger? }\int_0^{\int_0^1e^{-x^2}dx}e^{x^2}dx\quad\text{or}\quad\int_0^{\int_0^1e^{x^2}dx}e^{-x^2}dx?
+$$
+
+More on this later...
