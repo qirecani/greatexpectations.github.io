@@ -1,3 +1,6 @@
+---
+---
+
 @import "{{ site.theme }}";
 
 body {
@@ -11,46 +14,61 @@ body {
   max-width: 760px;
 }
 
-.site-header,
-.site-footer {
-  border-color: #e5e5e5;
+.site-header {
+  border-top: 0;
+  border-bottom: 1px solid #e8e8e8;
 }
 
 .site-title,
-.page-link {
+.page-link,
+.post-meta,
+.footer-note {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.post-title,
-h1, h2, h3 {
+.site-title {
+  font-size: 1.9rem;
+  font-weight: 400;
   letter-spacing: -0.02em;
 }
 
-.post-content p,
-.post-content li {
+.page-link {
+  color: #222;
+}
+
+.home p {
   font-size: 1.08rem;
+  margin-bottom: 2rem;
+  max-width: 38rem;
 }
 
-.post-content {
-  font-size: 1.05rem;
+.post-list-heading {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  font-weight: 500;
 }
 
-.post-content code {
-  font-size: 0.95em;
+.post-list li {
+  margin-bottom: 1.75rem;
 }
 
-.post-content blockquote {
-  color: #555;
-  border-left: 4px solid #ddd;
-  padding-left: 1rem;
-  margin-left: 0;
-}
-
-.post-content a {
-  color: #1a5fb4;
+.post-link {
+  color: #1d4f91;
   text-decoration: none;
 }
 
-.post-content a:hover {
+.post-link:hover {
   text-decoration: underline;
+}
+
+.site-footer {
+  border-top: 1px solid #e8e8e8;
+  padding: 1.5rem 0;
+}
+
+.footer-note {
+  margin: 0;
+  color: #666;
+  font-size: 0.95rem;
 }
