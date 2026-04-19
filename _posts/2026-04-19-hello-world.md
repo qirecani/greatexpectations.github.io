@@ -100,13 +100,13 @@ $$
 Finally, the Cauchy-Schwartz Inequality gives
 
 $$
-2\int_0^te^{-x^2}dx\cdot \int_0^te^{x^2}dx\ge\int_0^te^{-x^2}\cdot e^{x^2}dx=2t
+2\int_0^te^{-x^2}dx\cdot \int_0^te^{x^2}dx\ge\int_0^te^{-x^2}\cdot e^{x^2}dx=2t.
 $$
 
 Observe for $t\in(0,1)$, $2t>2t^2$, therefore
 
 $$
-\frac{f'(t)}{g'(t)}\ge\exp(2t-2t^2)>1\implies f'(t)>g'(t) \implies f(1)>g(1)
+\frac{f'(t)}{g'(t)}\ge\exp(2t-2t^2)>1\implies f'(t)>g'(t) \implies f(1)>g(1).
 $$
 
 Thus we have our answer:
@@ -130,7 +130,7 @@ $$
 We use Fubini/Tonelli's Theorem above to get a double integral, and swap the order of integration to get
 
 $$
-\int_{-\infty}^\infty\left(\int_{-\infty}^z e^{-x^2}dx\right)\cdot \frac{1}{\sqrt{2\pi}}e^\frac{-z^2}{2}dz=\int_{-\infty}^\infty e^{-x^2}\left(\int_{z=x}^\infty\frac{1}{\sqrt{2\pi}}e^\frac{-z^2}{2}dz\right)dx=\int_{-\infty}^\infty e^{-x^2}\left(1-\Phi(x)\right)dx
+\int_{-\infty}^\infty\left(\int_{-\infty}^z e^{-x^2}dx\right)\cdot \frac{1}{\sqrt{2\pi}}e^\frac{-z^2}{2}dz=\int_{-\infty}^\infty e^{-x^2}\left(\int_{z=x}^\infty\frac{1}{\sqrt{2\pi}}e^\frac{-z^2}{2}dz\right)dx=\int_{-\infty}^\infty e^{-x^2}\left(1-\Phi(x)\right)dx.
 $$
 
 Now, one more trick is to realise that $\frac12-\Phi(x)$ is an odd function with respect to $x$, and the product of an odd and even function is also an odd function, which integrates to 0 over the real line (given the necessary conditions that we shall not check here!). So, we rewrite the integral above as
@@ -140,7 +140,7 @@ $$
 \int_{-\infty}^\infty e^{-x^2}\left(\frac12-\Phi(x)\right)dx=\frac12\int_{-\infty}^\infty e^{-x^2}dx=\frac{\sqrt{\pi}}{2}.
 $$
 
-Thus, we conclude our blog debut with a **great expectation**:
+Thus, we conclude our blog debut with a $\textbf{great expectation}$:
 
 $$
 \mathbb{E}\left[\int_{-\infty}^Z e^{-x^2}dx\right]=\frac{\sqrt{\pi}}{2},\quad\text{where }Z\sim\mathcal{N}(0,1).
