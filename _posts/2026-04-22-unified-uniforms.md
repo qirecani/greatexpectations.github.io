@@ -83,4 +83,4 @@ $$
 \mathbb{E}[\tau]=f(0)=e
 $$
 
-What a $\textbb{great expectation}$!
+What a $\textbf{great expectation}$!
