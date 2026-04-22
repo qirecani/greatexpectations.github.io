@@ -25,7 +25,7 @@ $$
 \text{Let }X,Y,Z\text{ each be independent }U(0,1)\text{ random variables. Prove that }(XY)^Z\sim U(0,1).
 $$
 
-Honestly, this more of an algebra exercise than a thinking exercise. Let's first find the cdf of $XY$. Using, the Law of Total Probability, we have
+Honestly, this more of an algebra exercise than a thinking exercise. Let's first find the cdf of $XY$. Using the Law of Total Probability, we have
 
 $$
 \mathbb{P}(XY\le m)=\int_0^1\mathbb{P}(XY\le m\mid Y=y)dy=\int_0^1\mathbb{P}(X\le \frac{m}{y})dy.
