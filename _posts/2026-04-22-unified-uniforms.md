@@ -206,19 +206,19 @@ $$
 $$
 
 $$
-\implies\mathbb{P}(|X_i-X_j|>x,\forall i\ne j)=(1-(n-1)x)^n.
+\implies\mathbb{P}(|X_i-X_j|>x,\forall i\ne j)=(1-(n-1)x)^n,\quad x\in(0,\frac{1}{n-1}.
 $$
 
 This is definitely one of the most surprisingly elegant results I've come across. Now the cherry on top, since the minimum distance between any two distinct $X_i,X_j$ is non-negative almost surely, we can use the tail integration formula on the probability above to obtain another $\textbf{great expectation}$:
 
 $$
-\mathbb{E}\left[\min_{i\ne j}(|X_i-X_j|)\right]=\int_0^{\frac{1}{n+1}}\mathbb{P}(|X_i-X_j|>x,\forall i\ne j)dx
+\mathbb{E}\left[\min_{i\ne j}(|X_i-X_j|)\right]=\int_0^{\frac{1}{n-1}}\mathbb{P}(|X_i-X_j|>x,\forall i\ne j)dx
 $$
 
 By substituting $u=1-(n-1)x$, we get
 
 $$
-\int_0^{\frac{1}{n+1}}(1-(n-1)x)^ndx=\frac{1}{n-1}\int_0^1u^ndu=\frac{1}{(n-1)(n+1)}
+\int_0^{\frac{1}{n-1}}(1-(n-1)x)^ndx=\frac{1}{n-1}\int_0^1u^ndu=\frac{1}{(n-1)(n+1)}
 $$
 
 $$
