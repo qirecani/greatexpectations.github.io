@@ -163,7 +163,7 @@ $$
 f_{X_{(k)}}(x)=\frac{\Gamma(n+1)}{\Gamma(k)\Gamma(n-k+1)}x^{k-1}(1-x)^{n-k},\quad x\in(0,1).
 $$
 
-Those with a handy eye may recognise this as the pdf of a $\text{Beta}(k)(n-k+1)$ random variable, and indeed, this is the distribution of the $k^\text{th}$ order statistic of $S$. In particular, $\mathbb{E}[X_{(k)}]=\frac{k}{n+1}$, which agrees with an intuitive guess based on the average 'spacing' of $S$ across the interval $(0,1)$.
+Those with a handy eye may recognise this as the pdf of a $\text{Beta}(k,n-k+1)$ random variable, and indeed, this is the distribution of the $k^\text{th}$ order statistic of $S$. In particular, $\mathbb{E}[X_{(k)}]=\frac{k}{n+1}$, which agrees with an intuitive guess based on the average 'spacing' of $S$ across the interval $(0,1)$.
 
 We are now finally ready to tackle the next problem:
 
@@ -181,8 +181,23 @@ $$
 \mathbb{P}(|X_i-X_j|>x,\forall i\ne j)=\mathbb{P}(\min(X_{(2)}-X_{(1)},X_{(3)}-X_{(2)},\dots,X_{(n)}-X_{(n-1)})>x).
 $$
 
-In particular, let's try to find the joint distribution of $X_{(1)},X_{(2)},\dots,X_{(n)}$. Intuitively, every permutation of $S$ is equally likely, and so we are led to believe that $f_{X_{(1)},X_{(2)},\dots,X_{(n)}}(x_1,x_2,\dots,x_n)=n!$ with support $0<x_1<x_2,\dots,x_n$. We can confirm this by taking a similar combinatorical limit from above, where
+In particular, let's try to find the joint distribution of $X_{(1)},X_{(2)},\dots,X_{(n)}$. Intuitively, every permutation of $S$ is equally likely, and so we are led to believe that $f_{X_{(1)},X_{(2)},\dots,X_{(n)}}(x_1,x_2,\dots,x_n)=n!$ with support $0<x_1<x_2<\dots<x_n<1$ (i.e. an $n$-dimensional simplex). We can confirm this by taking a similar combinatorical limit from above, where
 
 $$
-f_{X_{(1)},X_{(2)},\dots,X_{(n)}}(x_1,x_2,\dots,x_n)=\lim_{\Delta x_1\to0,\Delta x_2\to0,\dots,\Delta x_n\to0}\frac{\mathbb{P}(\bigcap_{k=1}^n\left(x_k\le X_{(k)}<x_k+\Delta x_k\right))}{\Pi_{k=1}^n\Delta x_k}=n!\Pi_{k=1}^nf_X(x_k)=n!
+f_{X_{(1)},X_{(2)},\dots,X_{(n)}}(x_1,x_2,\dots,x_n)=\lim_{\Delta x_1\to0,\Delta x_2\to0,\dots,\Delta x_n\to0}\frac{\mathbb{P}(\bigcap_{k=1}^n\left(x_k\le X_{(k)}<x_k+\Delta x_k\right))}{\prod_{k=1}^n\Delta x_k}=n!\prod_{k=1}^nf_X(x_k)=n!,\quad0<x_1<x_2<\dots<x_n.
 $$
+
+Hence, all we need to do is find the the subset of $\\{0<x_1<x_2<\dots<x_n\\}$ corresponding to $\bigcap_{k=1}^{n-1}\\{x_{k+1}-x_{k}>x\\}$. Here's where we get a bit sneaky. Define $y_k = x_k - (k-1)x$. Then $x_{k+1}-x_{k}>x\iff y_{k+1}>y{k}$. Thus, the desired volume is the region corresponding to $0<y_1<y_2<\dots<y_n<1-(n-1)x$, another $n$-dimensional simplex with volume $\frac{(1-(n-1)x)^n}{n!}$. Thus, our desired probability is
+
+$$
+\mathbb{P}(|X_i-X_j|>x,\forall i\ne j)=\int_{0<y_1<y_2<\dots<y_n<1-(n-1)x}n!dy_1dy_2\dots dy_n=n!\int_{0<y_1<y_2<\dots<x_n<1-(n-1)x}dy_1dy_2\dots dy_n=n!\cdot\frac{(1-(n-1)x)^n}{n!}
+$$
+
+$$
+\implies\mathbb{P}(|X_i-X_j|>x,\forall i\ne j)=(1-(n-1)x)^n.
+$$
+
+This is definitely one of the most surprisingly elegant results I've come across.
+
+
+
