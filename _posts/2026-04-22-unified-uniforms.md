@@ -232,10 +232,10 @@ $$
 The desired integral is
 
 $$
-\mathbb{P}(\sum_{i=1}^nX_i\le x)=\int_0^x\int_0^{x-x_1}\dots\int_0^{x-x_1-\dots-x_{n-1}}dx_1dx_2\dotsdx_n=\frac{x^n}{n!}.
+\mathbb{P}(\sum_{i=1}^nX_i\le x)=\int_0^x\int_0^{x-x_1}\dots\int_0^{x-x_1-{}_\dots-x_{n-1}}dx_1dx_2\dots dx_n=\frac{x^n}{n!}.
 $$
 
-The cdf of the Irwin-Hall distribution gives the general result for all $x>0$, where $\mathbb{P}(\sum_{i=1}^nX_i\le x)=\frac{1}{n!}\sum_{k=1}^{\floor{x}}(-1)^k\binom{n}{k}(x-k)^n$. A good friend of mine suggested to leave the proof of this as an exercise for the reader, hinting to use the Inclusion-Exclusion Principle!
+The cdf of the Irwin-Hall distribution gives the general result for all $x>0$, where $\mathbb{P}(\sum_{i=1}^nX_i\le x)=\frac{1}{n!}\sum_{k=1}^{\lfloor x\rfloor}(-1)^k\binom{n}{k}(x-k)^n$. A good friend of mine suggested to leave the proof of this as an exercise for the reader, hinting to use the Inclusion-Exclusion Principle!
 
 
 
