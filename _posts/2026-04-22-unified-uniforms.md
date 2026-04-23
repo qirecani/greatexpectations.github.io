@@ -218,10 +218,24 @@ $$
 $$
 
 $$
-\implies\mathbb{E}\left[\min_{i\ne j}(|X_i-X_j|)\right]=\frac{1}{n^2-1},\quad n>1
+\implies\mathbb{E}\left[\min_{i\ne j}(|X_i-X_j|)\right]=\frac{1}{n^2-1},\quad n>1.
 $$
 
-Now just to sensibility-check this result, take $n = 2$, and notice that $\min_{i \ne j}(\lvert X_i - X_j \rvert) = X_{(2)} - X_{(1)}$. Taking the expectation of the RHS yields $\frac{2}{3} - \frac{1}{3} = \frac{1}{3} = \frac{1}{2^2 - 1}$. Amazing!
+Now just to sensibility-check this result, take $n = 2$, and notice that $\min_{i \ne j}(\lvert X_i - X_j \rvert) = X_{(2)} - X_{(1)}$. Taking the expectation of the RHS yields $\frac{2}{3} - \frac{1}{3} = \frac{1}{3} = \frac{1}{2^2 - 1}$.
+
+I also want to remark that the idea of using a simplex can be used to handily solve another problem:
+
+$$
+\text{What is }\mathbb{P}(\sum_{i=1}^nX_i\le x),\text{ for }n\in\mathbb{N}^+,\text{ where }X_i\sim U(0,1)?
+$$
+
+The desired integral is
+
+$$
+\mathbb{P}(\sum_{i=1}^nX_i\le x)=\int_0^x\int_0^{x-x_1}\dots\int_0^{x-x_1-\dots-x_{n-1}}dx_1dx_2\dotsdx_n=\frac{x^n}{n!}.
+$$
+
+The cdf of the Irwin-Hall distribution gives the general result for all $x>0$, where $\mathbb{P}(\sum_{i=1}^nX_i\le x)=\frac{1}{n!}\sum_{k=1}^{\floor{x}}(-1)^k\binom{n}{k}(x-k)^n$. A good friend of mine suggested to leave the proof of this as an exercise for the reader, hinting to use the Inclusion-Exclusion Principle!
 
 
 
