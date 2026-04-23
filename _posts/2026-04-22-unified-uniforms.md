@@ -142,9 +142,47 @@ $$
 Note that $f_X(x)=\frac{d}{dx}F_X(x)=\lim_{\Delta x\to0}\frac{\mathbb P(x\le X<x+\Delta x)}{\Delta x}$. We will now construct a limit to find $f_{X_{(k)}}(x)$. Following a similar combinatorical argument from above, we can reason that
 
 $$
-\mathbb{P}(x\le X_{(k)}<x+\Delta x)=k\binom{n}{k}\mathbb{P}(X\le x)^{k-1}\mathbb{P}(x\le X<x+\Delta x)\mathbb{P}(X>x)^{n-k}=k\binom{n}{k}\left(F_X(x)\right)^{k-1}\left(1-F_X(x)\right)^{n-k}\cdot\mathbb{P}(x\le X<x+\Delta x).
+\mathbb{P}(x\le X_{(k)}<x+\Delta x)=k\binom{n}{k}\mathbb{P}(X\le x)^{k-1}\mathbb{P}(x\le X<x+\Delta x)\mathbb{P}(X>x)^{n-k}
 $$
 
 $$
-\implies\lim_{\Delta x\to0}\frac{\mathbb{P}(x\le X_{(k)}<x+\Delta x)}{\Delta x}=k\binom{n}{k}\left(F_X(x)\right)^{k-1}\left(1-F_X(x)\right)^{n-k}\cdot\lim_{\Delta x\to0}\frac{\mathbb{P}(x\le X<x+\Delta x)}{\Delta x}=k\binom{n}{k}\left(F_X(x)\right)^{k-1}f_X(x)\left(1-F_X(x)\right)^{n-k}
+=k\binom{n}{k}\left(F_X(x)\right)^{k-1}\left(1-F_X(x)\right)^{n-k}\cdot\mathbb{P}(x\le X<x+\Delta x).
+$$
+
+$$
+\implies\lim_{\Delta x\to0}\frac{\mathbb{P}(x\le X_{(k)}<x+\Delta x)}{\Delta x}=k\binom{n}{k}\left(F_X(x)\right)^{k-1}\left(1-F_X(x)\right)^{n-k}\cdot\lim_{\Delta x\to0}\frac{\mathbb{P}(x\le X<x+\Delta x)}{\Delta x}
+$$
+
+$$
+\implies f_{X_{(k)}}(x)=k\binom{n}{k}\left(F_X(x)\right)^{k-1}f_X(x)\left(1-F_X(x)\right)^{n-k}.
+$$
+
+Now, if $X\sim U(0,1)$, using $n!=\Gamma(n+1)=\int_0^\infty t^ne^{-t}dt$, we get
+
+$$
+f_{X_{(k)}}(x)=\frac{\Gamma(n+1)}{\Gamma(k)\Gamma(n-k+1)}x^{k-1}(1-x)^{n-k},\quad x\in(0,1).
+$$
+
+Those with a handy eye may recognise this as the pdf of a $\text{Beta}(k)(n-k+1)$ random variable, and indeed, this is the distribution of the $k^\text{th}$ order statistic of $S$. In particular, $\mathbb{E}[X_{(k)}]=\frac{k}{n+1}$, which agrees with an intuitive guess based on the average 'spacing' of $S$ across the interval $(0,1)$.
+
+We are now finally ready to tackle the next problem:
+
+$$
+\text{Let }S=\\{X_1,X_2,\dots,X_n\\}\text{ be a set of }n\text{ i.i.d. }U(0,1)\text{ random variables}.
+$$
+
+$$
+\text{Find }\mathbb{P}(|X_i-X_j|>x,\forall i\ne j)\text{ and }\mathbb{E}[\min(\\{|X_i-X_j|\\}_{i\ne j})].
+$$
+
+It suffices to only focus on the order statistics of $S$, where
+
+$$
+\mathbb{P}(|X_i-X_j|>x,\forall i\ne j)=\mathbb{P}(\min(X_{(2)}-X_{(1)},X_{(3)}-X_{(2)},\dots,X_{(n)}-X_{(n-1)})>x).
+$$
+
+In particular, let's try to find the joint distribution of $X_{(1)},X_{(2)},\dots,X_{(n)}$. Intuitively, every permutation of $S$ is equally likely, and so we are led to believe that $f_{X_{(1)},X_{(2)},\dots,X_{(n)}}(x_1,x_2,\dots,x_n)=n!$ with support $0<x_1<x_2,\dots,x_n$. We can confirm this by taking a similar combinatorical limit from above, where
+
+$$
+f_{X_{(1)},X_{(2)},\dots,X_{(n)}}(x_1,x_2,\dots,x_n)=\lim_{\Delta x_1\to0,\Delta x_2\to0,\dots,\Delta x_n\to0}\frac{\mathbb{P}(x_1\le X_{(1)}<x_1+\Delta x_1,x_2\le X_{(2)}<x_2+\Delta x_2,\dots,x_n\le X_{(n)}<x_n+\Delta x_n)}{\Pi_{i=1}^n\Delta x_i}
 $$
