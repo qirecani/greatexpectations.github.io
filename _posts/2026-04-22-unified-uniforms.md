@@ -10,13 +10,13 @@ I first encountered the uniform distribution in high school, and I remember thin
 In this post, we'll explore some interesting problems involving standard uniform distributions, that is, random variables with the following Probability Density Function (pdf)
 
 $$
-f(x)=\mathbb{1}_{\{x\in(0,1)\}}.
+f(x)=\mathbf{1}_{\{x\in(0,1)\}}.
 $$
 
 and Cumulative Distribution Function (cdf)
 
 $$
-F(x)=x\mathbb{1}_{\{x\in(0,1)\}}.
+F(x)=x\mathbf{1}_{\{x\in(0,1)\}}.
 $$
 
 Now, I expect this post to be much lengthier than the first one, so feel free to kick back and enjoy a barrage questions that you never thought could be asked about $X\sim U(0,1)$.
