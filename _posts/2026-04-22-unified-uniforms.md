@@ -241,5 +241,40 @@ $$
 
 The cdf of the Irwin-Hall distribution gives the general result for all $x>0$, where $\mathbb{P}(\sum_{i=1}^nX_i\le x)=\frac{1}{n!}\sum_{k=1}^{\lfloor x\rfloor}(-1)^k\binom{n}{k}(x-k)^n$. A good friend of mine suggested to leave the proof of this as an exercise for the reader, hinting to use the Inclusion-Exclusion Principle!
 
+Let's finally end things off for this post with some game theory. Here's the setup of a very simple game (Hotelling Game):
 
+$$
+\text{Alice and Bob simultaneously say any real number of their choice between 0 and 1.}
+$$
 
+$$
+\text{Let }X\sim U(0,1).\text{ Whoever's chosen number is closest to }X\text{ wins the game.}
+$$
+
+$$
+\text{What is Alice's/Bob's optimal strategy to win the game.}
+$$
+
+A Nash Equilibrium is a situation where no player could gain more by changing their own strategy (holding all other players' strategies fixed) in a game. In the game above, by symmetry, the optimal strategy is the same for both players - which is to obviously say $\frac12$. Otherwise, if one player says $x\ne\frac12$, the other player can say $x+(-1)^{\mathbf{1}_{\\{x>\frac12\\}}}\cdot\epsilon$, for some small $\epsilon>0$ to have more than a $\frac12$ probability of winning, thus incentivising the original player (who said $x$) to deviate their strategy.
+
+Clearly, the $n=2$ player game is solved by a pure strategy. But when $n\ge3$, things change and no pure strategy exists. For the $n=3$-player game, let $a(x,y)$ be Alice's best response to Bob playing $x$ and Carl playing $y$ (without loss of generality, assume that $y>x$). After some finicky case-bashing, we can work out that
+
+$$
+a(x,y) = \begin{cases} 
+x-\epsilon & \text{if } x \ge \frac{y-x}{2} \text{ and } x \ge 1-y \\ 
+\text{any } c \in (x,y) & \text{if } \frac{y-x}{2} \ge x \text{ and } \frac{y-x}{2} \ge 1-y \\ 
+y+\epsilon & \text{if } 1-y \ge x \text{ and } 1-y \ge \frac{y-x}{2}
+\end{cases}
+$$
+
+This gives Alice a winning probability of $\max(x,\frac{y-x}{2},1-y)$. To minimise this, we (or Bob and Carl) solves for $x=\frac{y-x}{2}=1-y\implies x=\frac14,y=\frac34$, which gives Alice a winning probability of $\frac14$. However, Bob and Carl would then individually realise that colluding (giving them each a win probability of $\frac38$) is dominated by further deviating to $a(x,y)+(-1)^{\mathbf{1}_{\\{a(x,y)>\frac12\\}}}\cdot\epsilon$, giving themselves a better winning probability of at least $\frac12$. Hence, no pure strategy exists for the $n=3$-player game (and also the $n>3$-player games).
+
+One may postulate that a mixed strategy exists such that all $n\ge3$ players guess from some equilibrium cdf $F*$, and by the Indifference Principle,
+
+$$
+\int_0^1\int_0^1\mathbb{P}(\text{Alice wins}\mid\text{Alice guesses }x)dF*(b)dF*(c)=\frac13,\forall x\in(0,1).
+$$
+
+However, Nash equilibria need not exist if the set of choices is infinite and non-compact, which is exactly the scenario of what we have here. In fact, lecture notes from Cornell's Algorithmic Game Theory course present a proof that no Nash equilibria exist for $n\ge3$ Hotelling Games (https://www.cs.cornell.edu/courses/cs6840/2025fa/lectures/Sept10%20notes.pdf).
+
+We fittingly conclude this second post with a bit of curiousity that killed the cat. I'll aim to present more discrete (and solved!) games in subsequent posts. For now, I hope that this post opened up a world where problems involving $U(0,1)$ random variables were actually challenging. See you in the next one!
