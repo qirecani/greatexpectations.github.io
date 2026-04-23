@@ -218,14 +218,14 @@ $$
 By substituting $u=1-(n-1)x$, we get
 
 $$
-\int_0^{\frac{1}{n+1}}(1-(n-1)x)^ndx=\frac{1}{n-1}\int_0^1udu=\frac{1}{(n-1)(n+1)}
+\int_0^{\frac{1}{n+1}}(1-(n-1)x)^ndx=\frac{1}{n-1}\int_0^1u^ndu=\frac{1}{(n-1)(n+1)}
 $$
 
 $$
 \implies\mathbb{E}\left[\min_{i\ne j}(|X_i-X_j|)\right]=\frac{1}{n^2-1},\quad n>1.
 $$
 
-Now just to sensibility-check this result, take $n = 2$, and notice that $\min_{i \ne j}(\lvert X_i - X_j \rvert) = X_{(2)} - X_{(1)}$. Taking the expectation of the RHS yields $\frac{2}{3} - \frac{1}{3} = \frac{1}{3} = \frac{1}{2^2 - 1}$.
+Now just to sense-check this result, take $n = 2$, and notice that $\min_{i \ne j}(\lvert X_i - X_j \rvert) = X_{(2)} - X_{(1)}$. Taking the expectation of the RHS yields $\frac{2}{3} - \frac{1}{3} = \frac{1}{3} = \frac{1}{2^2 - 1}$.
 
 I also want to remark that the idea of using a simplex can be used to handily solve another problem:
 
@@ -239,7 +239,7 @@ $$
 \mathbb{P}(\sum_{i=1}^nX_i\le x)=\int_0^x\int_0^{x-x_1}\dots\int_0^{x-x_1-...-x_{n-1}}dx_1dx_2\dots dx_n=\frac{x^n}{n!}.
 $$
 
-The cdf of the Irwin-Hall distribution gives the general result for all $x>0$, where $\mathbb{P}(\sum_{i=1}^nX_i\le x)=\frac{1}{n!}\sum_{k=1}^{\lfloor x\rfloor}(-1)^k\binom{n}{k}(x-k)^n$. A good friend of mine suggested to leave the proof of this as an exercise for the reader, hinting to use the Inclusion-Exclusion Principle!
+The cdf of the Irwin-Hall distribution gives the general result for all $x\in(0,n)$, where $\mathbb{P}(\sum_{i=1}^nX_i\le x)=\frac{1}{n!}\sum_{k=1}^{\lfloor x\rfloor}(-1)^k\binom{n}{k}(x-k)^n$. A good friend of mine suggested to leave the proof of this as an exercise for the reader, hinting to use the Inclusion-Exclusion Principle!
 
 Let's finally end things off for this post with some game theory. Here's the setup of a very simple game (Hotelling Game):
 
